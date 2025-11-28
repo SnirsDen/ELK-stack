@@ -13,7 +13,7 @@ sudo apt install -y openjdk-17-jdk  # Или более новую версию
 java -version  # Проверьте версию Java (требуется 17+)
 ```
 
-**Добавление репозитория Elastic:**
+**Добавление репозитория Elastic:** VPN!!!!!!!!!!!!
 ```bash
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elastic-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/elastic-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-8.x.list
@@ -50,7 +50,7 @@ sudo systemctl status elasticsearch  # Проверка статуса
 curl -X GET "localhost:9200"
 ```
 
-### 3. Установка Kibana
+### 3. Установка Kibana VPN!!!!!!!!!!!!
 ```bash
 sudo apt install -y kibana
 ```
@@ -80,7 +80,7 @@ sudo systemctl status kibana
 sudo apt install -y logstash
 ```
 
-**Пример конфигурации Logstash:**
+**Пример конфигурации Logstash:** VPN!!!!!!!!!!!!
 Создайте конфиг для приема логов:
 ```bash
 sudo nano /etc/logstash/conf.d/my-pipeline.conf
