@@ -121,16 +121,33 @@ sudo nano /etc/filebeat/filebeat.yml
 ```
 Настройте вывод в Logstash или напрямую в Elasticsearch.
 
-### 6. Работа с Kibana
+Далее нам нужно настроить аутентификацию в elasticsearch.
+Для этого создадим пароль для встроенного
+пользователя kibana_system:
+#/usr/share/elasticsearch/bin/elasticsearch-reset-
+password -u kibana_system
+
+### Kibana verification code:
+
+    Navigate to the Kibana directory:
+        cd /usr/share/kibana/
+    Run the verification code script:
+        For Linux/macOS: sudo ./bin/kibana-verification-code
+        For Windows: sudo .bin/kibana-verification-code.bat --allow-root -c /etc/kibana/kibana.yml
+    Copy the output: The command will output a verification code, such as Your verification code is: ******.
+
+### 6. Безопасность
+**Включите базовую аутентификацию:**
+```bash
+sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+
+### 7. Работа с Kibana
 1. Откройте http://localhost:5601
 2. Перейдите в "Stack Management" → "Index Patterns"
 3. Создайте индекс-паттерн (например, `my-logs-*`)
 4. Используйте вкладку "Discover" для просмотра логов
 
-### 7. Безопасность
-**Включите базовую аутентификацию:**
-```bash
-sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+
 ```
 
 **Настройте HTTPS:**
